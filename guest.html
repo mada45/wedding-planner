@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Find your invitation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="./css/guest.css" type="text/css">
+	<!-- Link to external source of the icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Khmer" rel="stylesheet">
+	<script src="./js/guest.js"></script>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<header>
+		<!-- Burger menu -->			
+		<section class="" id="nav-bar">
+			<!--Checkbox to toggle the burger menu-->
+			<input id="togglemenu" type="checkbox" />
+			<!--Label for the checkbox to turn ON-->
+			<label id="menuon" for="togglemenu"></label>
+			<!--Label for X in burger menu-->
+			<label id="x" for="togglemenu"><i class="far fa-times-circle fa-2x" aria-hidden="true"></i></label>
+			<!--Label for the checkbox to turn OFF-->
+			<label id="menuoff" for="togglemenu"></label>
+			<!--Navigation bar-->
+			<nav>
+				<!--Links in Navbar-->
+				<a href="index.html">Home</a>
+				<section class="dropdown">
+					<a href="profile.html">Planning Tools</a>
+						<ul class="dropdown-content">
+							<li><a href="profile.html">My Information</a></li>
+							<li><a href="profile.html">Checklist</a></li>
+							<li><a href="profile.html">Inspiration</a></li>
+							<li><a href="profile.html">Favorites</a></li>
+							<li><a href="profile.html">Guest List</a></li>
+							<li><a href="profile.html">Messages</a></li>
+						</ul>
+				</section>
+				<section class="dropdown">
+					<a href="venue.html">Wedding Suppliers</a>
+						<ul class="dropdown-content">
+							<li><a href="venue.html">Venues</a></li>
+							<li><a href="photographer.html">Photographers</a></li>
+							<li><a href="florist.html">Florists</a></li>
+							<li><a href="bakeri.html">Bakers</a></li>
+							<li><a href="dress.html">Dresses</a></li>
+						</ul>
+				</section>
+				<a href="guest.html">For Guests</a>
+				<a href="collaborator.html">Work with Us</a>
+			</nav>
+			<!--Burger Menu lines-->
+			<span></span>
+			<span></span>
+			<span></span>
+		</section>
+		<!-- Logo -->
+		<a href="home.html" id="logo"><img src="./resources/logo.jpg" alt="logo"></a>
+		<button id="account-btn" onclick="openLogin()"><i class="far fa-user fa-2x" aria-hidden="true"></i></button>
+    </header>
+	
+	 <!-- The content of the page -->
+    <main>
+    	<!-- The background image -->
+		<section class="image" id="background-img">
+			<h1 class="page-title">Guests</h1>
+		</section>
+		
+		<!-- Ivitation request form  -->
+		<section class="form-section" id="invitation-form-section">
+			<form class="form-container" id="invitation-form-container">		
+				<h2 id="form-title">Find your invitation</h2>
+				<div class="row">
+					<div class="col-25">
+						<label for="name">Name</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="name" name="name" required>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-25">
+						<label for="surname">Surname</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="surname" name="surname" required>
+					</div>
+				</div>
+				
+				<div class="row" id="code-row">
+					<div class="col-25">
+						<label for="code">Code</label>
+					</div>
+					<div class="col-75">
+						<input type="text" id="code" name="code" required>
+					</div>
+				</div>
+
+				<div class="row" id="open-invitation-row">
+					<div class="col-25">
+						<button type="submit" id="invitation-form-btn">Open</button>
+					</div>
+				</div>
+			</form>
+		</section>
+	</main>
+		
+	<!-- Contact information and social media icons -->
+	<footer>
+		<ul>
+			<li>
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+				<a href="#"><i class="fab fa-twitter "></i></a> 
+				<a href="#"><i class="fab fa-instagram "></i></a>
+				<h5>weddingplanner@customerservice.dk</h5>
+			</li>
+		</ul>
+	</footer>
+	
+	<!-- Sign up || Login -->
+	<div class="form-section" id="account-form-section">
+		<form class="form-container" id="account-form-container">
+			<div class="exit-row">
+				<div class="exit-col">
+					<i class="far fa-times-circle fa-2x" onclick="closeLogin()" aria-hidden="true"></i> 
+				</div>
+			</div>
+
+			<div class="btn-row">
+				<div class="col-25">
+					<button class="account-form-btn" id="sign-up-btn"><a href="http://patrunjel.com/weddingplanner.dk/html/under-construction.html"></a>Sign up</button>
+				</div>
+			</div>
+
+			<div class="btn-row">
+				<div class="col-25">
+					<button class="account-form-btn" id="login-btn"><a href="under-construction.html"></a>Login</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

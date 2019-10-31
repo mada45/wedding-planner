@@ -1,0 +1,619 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i|Rubik:300');
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--peach: #fbbc8f;
+	--dark: #4C6250;
+	--light: #A4BC82;
+}
+
+html, body{
+	scroll-behavior: smooth;
+	max-width: 100%;
+    max-height: 100%;
+	margin: 0;
+	text-rendering: optimizeLegibility;
+    line-height: 1.4;
+    font-size: 100%;
+	color: var(--dark);
+}
+
+
+main{
+	height: -webkit-fill-available;
+	display: grid;
+	grid-template-rows: auto;
+}
+
+
+a{
+	display: contents;
+	text-decoration: none;
+	color: black;
+}
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1{
+	font-family:'Playfair Display', serif;
+	padding: 0;
+	padding: 0 0 4rem 0;
+    /*font-weight: 600;*/
+	text-align: center;
+	text-transform: uppercase;
+	color: white;
+	font-size: 2.5em;
+}
+
+h5{
+	font-family: 'Rubik', sans-serif;
+	font-weight: 200;
+}
+
+/* Hide elements on mobile version */
+#account-pop-up, #login-pop-up, #fa-line, #filter-section{
+	display: none;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------------
+-------------------------------- NAVIGATION -------------------------------
+---------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+header{
+	width: 100%;
+	height: 4em;
+    margin: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: 
+		'nav-bar logo login';
+	grid-gap: 2em;
+	align-items: center;
+	/*overflow: hidden;*/
+	position: fixed;
+	opacity: 0.7;
+	z-index: 98;
+	padding: 0;
+}
+
+#nav-bar{
+	display: grid;
+}
+
+/*Burger menu - Menu On*/
+#menuon{
+	background: black;
+	color: white;
+	padding: 1em 1.5em 0 0;
+	position: fixed;
+	z-index: 102;
+	opacity: 0;
+}
+
+/*Burger menu - Menu Off*/
+#menuoff{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.60);
+	z-index: 99;
+	display: none;
+}
+
+#nav-bar span{
+	display: block;
+	width: 2em;
+	height: 3px;
+	background: black;
+	margin-bottom: 4px;
+	z-index: 101;
+}
+
+/* Close button (X) for burger menu*/
+#x{
+    color: var(--peach);
+    padding: 0.2em;
+    position: fixed;
+    z-index: 102;
+    display: none;
+}
+
+/*Navigation bar*/
+nav {
+    background-color: rgba(0,0,0,0.60);
+    opacity: 1;
+	position: fixed;
+	padding: 2em;
+	z-index: 100;
+	display: none;
+	
+}
+
+/*Links in Navbar*/
+nav a{
+	color: white;
+	display: block;
+	padding-bottom: 2em;
+    min-width: 10em;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.6em;
+	
+}
+
+
+
+
+/*to toggle the burger menu*/
+#togglemenu:checked ~ nav{
+	display: block;
+}
+
+/*to get rid of the checkbox*/
+#togglemenu{
+	display: none;
+}
+
+/*gray space to turn off burger menu*/
+#togglemenu:checked ~ #menuoff{
+	display: block;
+}
+
+/* X to turn off burger menu*/
+#togglemenu:checked ~ #x{
+	display: block;
+}
+
+#logo{
+	display: grid;
+    justify-items: center;
+}
+
+#logo img{
+	max-width: 50%;
+	align-self: center;
+}
+
+#login-btn{
+    display: flex;
+    background-color: transparent;
+    border: none;
+	justify-content: flex-end;
+}
+
+#login-btn:focus{
+	outline:none;
+}
+
+#login-btn i{
+    font-size: 2.5em;	
+}
+nav a:hover{
+	color: var(--peach);
+}
+
+
+.dropdown-content{
+	position: absolute;
+	display: none;
+	z-index: 2000;
+	padding: 0;
+	margin: 1rem 0;
+	background: #FFFFFF;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li{
+	display: none;
+	
+}
+
+/* Sign-up or sign-in button */
+#account-btn{
+	padding: 0;
+    display: flex;
+    background-color: transparent;
+    border: none;
+	justify-content: flex-end;
+}
+
+#account-btn i{
+    font-size: 2.5em;	
+}
+
+#account-btn:focus{
+	outline:none;
+}
+
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------- MAIN SECTION ---------------------------
+---------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.image{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#background-img{
+	display: flex;
+	flex-flow: column;
+	height: 14em;
+	align-items: center;
+	justify-content: center;
+	background-image: url("../resources/web/guest.jpg");
+}
+
+.page-title{
+	position: relative;
+	top: 30%;
+	font-size: 3.7rem;	
+	z-index: 1;
+	font-weight: 200;
+}
+
+
+#invitation-form-section {
+    background-color: white;
+    opacity: 0.9;
+	padding: 1rem 0 0 0;
+	font-family: 'Playfair Display', serif;
+	font-weight: 200;
+}
+
+#invitation-form-container {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+#invitation-form-btn{
+	background-color: var(--peach);
+	width: 100%;
+	height: 2em;
+	border: none;
+	border-radius: 0.5em;
+	margin: 2.5em 0 0 0;
+	font-size: 1em;
+}
+
+/* Input fields*/
+.row{
+	width: 12em;
+	height: auto;
+	padding: 0 0 1em 0;
+	content: "";
+	display: table;
+	clear: both;
+}	
+
+.row input{
+	width: 15em;
+}
+
+#open-invitation-row{
+	width: 30%;
+}
+
+/* Sign-up/login pop-up */
+#account-form-section {
+	display: none;
+    position: absolute;
+	width: 90%;
+    height: 50%;
+	margin: 1em;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.8;
+    bottom: 0;
+    border-style: dashed;
+    z-index: 10009;
+}
+
+
+#account-form-container {
+	  height: 100%;
+	  width: 100%;
+	  padding: 4em;
+	  display: flex;
+      justify-content: space-between;
+      flex-flow: column;
+	  background-color: black;
+	  font-family: 'Rubik', sans-serif;
+}
+
+/* Full-width input fields */
+#account-form-container input[type=text],input[type=email], textarea{
+	border: none;
+	background: white;
+	width: 20em;
+}
+
+/* When the inputs get focus, do something */
+#account-form-container input[type=text]:focus, input[type=email]:focus, textarea:focus{
+	background-color: #ddd;
+	outline: none;
+}
+
+.account-form-btn {
+  	background-color: var(--peach);
+  	width: 100%;
+  	border: none;
+	padding: 0.2em;
+  	opacity: 1;
+    border-style: double;
+    border-radius: 1rem;
+  	font-size: 2em;
+}
+
+label{
+	font-size: large;
+	font-family: futura-pt, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: var(--dark-grey);
+}
+
+.exit-col{
+	width: 100%;
+}
+
+.exit-col i{
+	color: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	padding: 0.2em;
+	opacity: 0.9;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------------
+-------------------------------------- FOOTER -----------------------------
+---------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+footer{
+    display: flex;
+	justify-content: center;
+	padding: 0 0.5em 0 0.5em;
+	opacity: 0.9;
+}
+
+footer a {
+    color: var(--dark);
+}
+
+footer li{
+    display: flex;
+    align-items: center;
+	padding: 0 0.5em 0 0;
+	
+}
+
+.fa-facebook-f, .fa-twitter, .fa-instagram{
+    display: block;
+    padding: 0 0.5em 0 0.5em;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------------------
+---------------------------------------------------------------------------
+------------------------------- MEDIA QUERIES -----------------------------
+---------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+/* Desktop */
+
+@media screen and (min-width: 700px){
+	
+	header{
+		padding: 0;
+	}
+	
+	h2{
+		font-size: 2em;
+    	opacity: 0.9;
+	}
+	
+	h5{
+	    font-size: 1.2em;
+    	font-family: 'Playfair Display', serif;
+	font-weight: 200;    
+	}
+	
+	/* Reposition nav-bar items */
+	#logo{
+		grid-area: nav-bar;
+		justify-items: flex-start;
+		margin-left: 2em;
+	}
+	
+	#logo img{
+	    max-width: 30%;
+	}
+	
+	#nav-bar{
+		grid-area: logo;
+		padding: 0;
+		margin: 0;
+	}
+	
+	/* Burger menu dissapears */
+	#menuoff, #menuon, #x, #nav-bar span, #filter-btn-mobile, #arrow-down{
+		display: none;
+	}
+	
+	/* Nav-bar appears as desktop navbar */
+	nav{
+		display: inline-flex;
+		position: static;
+		background-color: white;
+		padding: 0;
+		margin: 0;
+	}
+	
+	nav button{
+	padding: 1.5em 0;
+		margin: 0;
+}
+	
+	/* Nav-bar links get in a line */
+	nav a{
+		display: inline-block;
+		color: #4C6250;
+		font-size: 1.2em;
+		padding: 0;
+		font-family: 'Rubik', sans-serif;
+		margin: 0;
+	}
+	
+	nav ul{
+		margin: 0;
+	}
+	
+	
+	
+	/* Change color on hover for the nav-bar and login icon */
+	nav a:hover{
+		color: var(--peach);
+	}
+	
+	nav a:active{
+		color: var(--peach);
+	}
+	
+	#login-btn{
+	    justify-content: flex-start;
+		color: #4C6250;
+		margin-left: 8em;
+	}
+	
+	#login-btn:focus{
+	    outline: none;
+	}
+	
+	.dropdown{
+	position: relative;
+	margin: 0;
+}
+	
+	.dropdown-content{
+		margin: 0;
+		padding: 1.5rem 0 0;
+	}
+
+	.dropdown-content li{
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+		list-style: none;
+		padding: 0.25rem 0;
+		display: block;
+		
+}
+
+	.dropdown:hover > .dropdown-content{
+		display: block;
+}
+
+	.dropdown-content li a:hover{
+		color: var(--peach);
+}
+	
+	
+	#background-img{
+		height: 350px;
+	}
+
+	.page-title{
+		font-size: 5em;
+		color: white;
+		position: absolute;
+		top: 10%;
+	}
+	
+	#invitation-form-section{
+	}
+	
+	#invitation-form-container{
+
+		align-items: center;
+	}
+	
+	#account-form-section{
+		margin: 0;
+		width: 25%;
+		height: 30%;
+		position: absolute;
+		left: 59%;
+		top: 2%;
+	}
+	
+	#invitation-form-btn{
+		font-size: 1.2em;
+	}
+	
+	/* Removed placeholder on focus */
+	input:focus::-webkit-input-placeholder {
+    	color: transparent;
+	}
+	
+	.row{
+		width: auto;
+		height: 4em;
+
+	}
+	
+	.row input{
+		width: 25em;
+		height: -webkit-fill-available;
+	}
+	
+	#open-invitation-row{
+		width: 15%;
+	}
+	
+	#account-btn{
+		justify-content: flex-start;
+	}
+	
+	#account-btn:hover{
+		color: var(--peach);
+	}
+
+	.account-form-btn:hover{		
+		transform: scale(1.1);
+	}
+	
+	#invitation-form-btn:hover{
+		transform: scale(1.1);
+	}
+	
+	footer h5{
+	    font-size:1.2em;
+	}
+	
+	footer ul{
+	    padding: 0.3em;
+	}
+}

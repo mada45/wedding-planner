@@ -1,0 +1,871 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i|Rubik:300');
+
+/* CSS Document */
+
+:root {
+	--peach: #fbbc8f;
+	--dark: #4C6250;
+	--light: #A4BC82;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+header{
+	width: 100%;
+	height: 4em;
+    margin: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: 
+		'nav-bar logo login';
+	grid-gap: 2em;
+	align-items: center;
+	/*overflow: hidden;*/
+	position: fixed;
+	opacity: 0.7;
+	z-index: 98;
+	padding: 0;
+}
+
+#nav-bar{
+	display: grid;
+}
+
+/*Burger menu - Menu On*/
+#menuon{
+	background: black;
+	color: white;
+	padding: 1em 1.5em 0 0;
+	position: fixed;
+	z-index: 102;
+	opacity: 0;
+}
+
+/*Burger menu - Menu Off*/
+#menuoff{
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.60);
+	z-index: 99;
+	display: none;
+}
+
+#nav-bar span{
+	display: block;
+	width: 2em;
+	height: 3px;
+	background: black;
+	margin-bottom: 4px;
+	z-index: 101;
+}
+
+/* Close button (X) for burger menu*/
+#x{
+    color: var(--peach);
+    padding: 0.2em;
+    position: fixed;
+    z-index: 102;
+    display: none;
+}
+
+/*Navigation bar*/
+nav {
+    background-color: rgba(0,0,0,0.60);
+    opacity: 1;
+	position: fixed;
+	padding: 2em;
+	z-index: 100;
+	display: none;
+	
+}
+
+/*Links in Navbar*/
+nav a{
+	color: white;
+	display: block;
+	padding-bottom: 1em;
+    min-width: 10em;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1.6em;
+	
+}
+
+
+
+
+/*to toggle the burger menu*/
+#togglemenu:checked ~ nav{
+	display: block;
+}
+
+/*to get rid of the checkbox*/
+#togglemenu{
+	display: none;
+}
+
+/*gray space to turn off burger menu*/
+#togglemenu:checked ~ #menuoff{
+	display: block;
+}
+
+/* X to turn off burger menu*/
+#togglemenu:checked ~ #x{
+	display: block;
+}
+
+#logo{
+	display: grid;
+    justify-items: center;
+}
+
+#logo img{
+	max-width: 50%;
+	align-self: center;
+}
+
+#login-btn{
+    display: flex;
+    background-color: transparent;
+    border: none;
+	justify-content: flex-end;
+}
+
+#login-btn:focus{
+	outline:none;
+}
+
+#login-btn i{
+    font-size: 2.5em;	
+}
+nav a:hover{
+	color: var(--peach);
+}
+
+
+.dropdown-content{
+	position: absolute;
+	display: none;
+	z-index: 2000;
+	padding: 0;
+	margin: 1rem 0;
+	background: #FFFFFF;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li{
+	display: none;
+	
+}
+
+
+
+#logo{
+	display: grid;
+    justify-items: center;
+}
+
+#logo img{
+	max-width: 50%;
+	align-self: center;
+}
+
+#login-btn{
+    display: flex;
+    background-color: transparent;
+    border: none;
+	justify-content: flex-end;
+}
+
+#login-btn:focus{
+	outline:none;
+}
+
+#login-btn i{
+    font-size: 2.5em;	
+}
+
+/* ------------- Form ---------------- */
+
+/* The popup form - hidden by default */
+.form-popup {
+	display: none;
+    position: absolute;
+	width: 90%;
+    height: 50%;
+	margin: 1em;
+    top: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.8;
+    bottom: 0;
+    border-style: dashed;
+    z-index: 10009;
+}
+
+/* Add styles to the form container */
+.form-container {
+	  height: 100%;
+	  width: 100%;
+	  padding: 4em;
+	  display: flex;
+      justify-content: space-between;
+      flex-flow: column;
+	  background-color: black;
+}
+
+/* Full-width input fields */
+.form-container input[type=text],input[type=email], textarea{
+  	border: none;
+  	background: #f1f1f1;
+  	width: 20em;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, input[type=email]:focus, textarea:focus{
+  	background-color: #ddd;
+  	outline: none;
+}
+
+/* Style send button */
+.login-btn {
+  	background-color: var(--peach);
+  	width: 100%;
+  	color: black;
+  	border: none;
+  	cursor: pointer;
+	padding: 0.2em;
+  	opacity: 1;
+    border-style: double;
+    border-radius: 1rem;
+  	font-size: 2em;
+  	font-family: 'Rubik', sans-serif;
+  	font-weight: 300;
+  	font-style: normal;
+  	transition:         0.08s ease-in;
+	-o-transition:      0.08s ease-in;
+	-ms-transition:     0.08s ease-in;
+	-moz-transition:    0.08s ease-in;
+	-webkit-transition: 0.08s ease-in;
+}
+
+label{
+	font-size: xx-large;
+	font-family:'Rubik', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	color: var(--dark-grey);
+}
+
+.exit-col{
+	width: 100%;
+}
+
+.exit-col i{
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 0.2em;
+	opacity: 0.9;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#under-construction{
+	display: flex;
+    justify-content: center;
+}
+
+
+img{
+	width: 100%;
+}
+
+
+body{
+    max-width: 100%;
+    max-height: 100%;
+    text-rendering: optimizeLegibility;
+    line-height: 1.4;
+    font-size: 100%;
+	margin: 0;
+}
+
+main{
+	display: grid;
+	grid-template-rows: auto;
+}
+
+/* Hide elements on mobile version */
+#account-pop-up, #login-pop-up, #fa-line, #filter-section{
+	display: none;
+}
+
+h1{
+	font-family: 'Rubik', sans-serif;
+	font-weight: 200;
+	text-align: center;
+}
+
+a{
+	display: contents;
+}
+
+
+
+.homepage-pictures article{
+	position: relative;
+	min-height: 40rem;
+	background: url("../resources/jeremy-wong-weddings-602196-unsplash.jpg");
+	background-size: cover;
+    background-position: center;
+}
+
+.homepage-pictures{
+	position: relative;
+	margin-bottom: 10px;
+	
+}
+
+#first-pic-text{
+	position: absolute;
+	top: 15%;
+	left: 0%;
+	font-size: 3rem;
+	font-family:'Playfair Display', serif;
+	color: white;
+	text-align: center;
+}
+
+.start-planning-button{
+	position: absolute;
+	bottom: 20%;
+  	left: 29%;
+	background-color:var(--peach);
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 1.5rem;
+	opacity: 0.9;
+	
+		
+	-moz-transition: opacity 0.2s; /* Firefox */
+    -webkit-transition: opacity 0.2s; /* Safari and Chrome */
+    -o-transition: opacity 0.2s; /* Opera */
+    transition: opacity 0.2s;
+}
+
+.start-planning-button:hover{
+	opacity: 1;
+}
+
+#quote{
+	text-align: center;
+	font-size: 1.5rem;
+	margin-left: 3rem;
+	margin-right: 3rem;
+	margin-bottom: 0;
+	margin-top: 1.5rem;
+	font-family: 'Playfair Display', serif;
+	
+	color: #4C6250;
+}
+
+#quote-name{
+	text-align: right;
+	/*margin-right: 2rem;*/
+	font-size: 1rem;
+	padding: 0;
+	margin: 0 2rem 1.5rem 0;
+	color: #4C6250;
+}
+
+#venue-pic{
+	background: url("../resources/sweet-ice-cream-photography-399226-unsplash.jpg");
+	background-size: cover;
+    background-position:center;
+	display: block;
+	min-height: 15rem;
+	/*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);*/
+	
+	-moz-transition: opacity 0.5s; /* Firefox */
+    -webkit-transition: opacity 0.5s; /* Safari and Chrome */
+    -o-transition: opacity 0.5s; /* Opera */
+    transition: opacity 0.5s;
+}
+
+#venue-pic:hover{
+	opacity: 0.6;
+}
+
+#venues-text{
+	position: absolute;
+	top: 10%;
+	left: 24%;
+	font-size: 3.7rem;
+	color: white;
+}
+
+#boxes-section{
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	margin: 1rem;
+}
+
+#florist-box{
+	position: relative;
+	min-height: 10rem;
+	background: url("../resources/tom-the-photographer-651516-unsplash.jpg");
+	background-size: cover;
+    background-position:center;
+	display: block;
+	
+		
+	-moz-transition: opacity 0.5s; /* Firefox */
+    -webkit-transition: opacity 0.5s; /* Safari and Chrome */
+    -o-transition: opacity 0.5s; /* Opera */
+    transition: opacity 0.5s;
+}
+
+#florist-box:hover{
+	opacity: 0.6;
+}
+
+#dresses-box{
+	position: relative;
+	min-height: 10rem;
+	background: url("../resources/charisse-kenion-340543-unsplash.jpg");
+	background-size: cover;
+    background-position:center;
+	display: block;
+	
+		
+	-moz-transition: opacity 0.5s; /* Firefox */
+    -webkit-transition: opacity 0.5s; /* Safari and Chrome */
+    -o-transition: opacity 0.5s; /* Opera */
+    transition: opacity 0.5s;
+}
+
+#dresses-box:hover{
+	opacity: 0.6;
+}
+
+#rings-box{
+	position: relative;
+	min-height: 10rem;
+	background: url(../resources/web/photographers/photographer2-xl.jpg);
+	background-size: cover;
+    background-position:center;
+	display: block;
+	
+		
+	-moz-transition: opacity 0.5s; /* Firefox */
+    -webkit-transition: opacity 0.5s; /* Safari and Chrome */
+    -o-transition: opacity 0.5s; /* Opera */
+    transition: opacity 0.5s;
+}
+
+#rings-box:hover{
+	opacity: 0.6;
+}
+
+#cakes-box{
+	position: relative;
+	min-height: 10rem;
+	background: url("../resources/marcie-douglass-204244-unsplash.jpg");
+	background-size: cover;
+    background-position:top;
+	display: block;
+	
+		
+	-moz-transition: opacity 0.5s; /* Firefox */
+    -webkit-transition: opacity 0.5s; /* Safari and Chrome */
+    -o-transition: opacity 0.5s; /* Opera */
+    transition: opacity 0.5s;
+}
+
+#cakes-box:hover{
+	opacity: 0.6;
+}
+
+.box-text-first{
+	position: absolute;
+	top: 16%;
+	left: 22%;
+	font-size: 1.8rem;
+	color: white;
+	font-family:'Playfair Display', serif;
+	
+}
+
+.box-text-second{
+	position: absolute;
+	top: 16%;
+	left: 28%;
+	font-size: 1.8rem;
+	color: white;
+	font-family:'Playfair Display', serif;
+}
+.box-text-third {
+	position: absolute;
+	top: 20%;
+	left: 2%;
+	font-size: 1.5rem;
+	color: white;
+	font-family:'Playfair Display', serif;
+	
+}
+
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  z-index: 99;
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  background-color: var(--peach);
+  color: white;
+  padding: 0.8em;
+  
+  
+}
+
+footer{
+	width: 100%;
+    height: 100%;
+	display:flex;
+	justify-content: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+	padding: 0.5em;
+	text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: #3a3a3c;
+}
+
+footer ul {
+    display: flex;
+    padding: 0;
+	margin: 0;
+    list-style: none;    
+
+}
+
+footer h1{
+	text-align: center;
+    font-size: 0.9em;
+	padding: 0.3em;
+	margin: 0;
+	vertical-align: middle;
+	color: #4C6250;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook-f {
+    display: block;
+    padding: 8px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    text-decoration: none;
+	color: #4C6250;
+}
+.fa-twitter {
+    display: block;
+    padding: 8px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    text-decoration: none;
+	color: #4C6250;
+}
+.fa-instagram {
+	display: block;
+    padding: 8px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    text-decoration: none;
+	color: #4C6250;
+}
+
+
+/*Responsiveness for homepage*/
+@media screen and (min-width: 500px){
+	
+	.start-planning-button{
+  	left: 41%;
+		font-family: 'Rubik', sans-serif;
+	}
+	
+	#first-pic-text{
+	top: 24%;
+	left: 18%;
+	font-size: 6rem;
+	font-family: 'Playfair Display', serif;
+	
+	}
+	
+	#break{
+		display: none;
+	}
+	
+	
+	
+	#venues-text{
+	left: 40%;
+	top: 25%;
+	font-family: 'Playfair Display', serif;
+}
+	#venue-pic{
+	min-height: 25rem;
+}
+	
+	.box-text-first{
+	top: 29%;
+	left: 29%;
+	font-family: 'Playfair Display', serif;
+}
+	.box-text-second{
+	top: 29%;
+	left: 35%;
+	font-family: 'Playfair Display', serif;
+}
+	.box-text-third {
+	top: 30%;
+	left: 16%;
+	font-family: 'Playfair Display', serif;
+	font-size: 1.7rem;
+	}
+	#boxes-section{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+	
+	#florist-box{
+		min-height: 15rem;
+	}
+	
+	#dresses-box{
+		min-height: 15rem;
+	}
+	
+	#rings-box{
+		min-height: 15rem;
+	}
+	
+	#cakes-box{
+		min-height: 15rem;
+	}
+	
+	#quote{
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 0;
+	margin-top: 3rem;
+	font-family: 'Playfair Display', serif;
+	color: #4C6250;
+}
+
+#quote-name{
+	text-align: right;
+	/*margin-right: 2rem;*/
+	font-size: 1.7rem;
+	padding: 0;
+	margin: 1rem 10rem 3rem 0;
+	font-family: 'Playfair Display', serif;
+	color: #4C6250;
+}
+	
+	.form-popup{
+		margin: 0;
+    	width: 25%;
+    	height: 30%;
+		position: absolute;
+    	left: 59%;
+		top: 2%;
+	}
+	
+	.form-container{
+	    padding: 0;
+		align-items: center;
+    	display: flex;
+    	justify-content: space-evenly;
+	}
+	
+	.btn-row{
+	    width: 50%;
+	}
+	
+	.login-btn{
+		width: 100%;
+	}
+	
+	.login-btn:before {
+		content: "";
+		position: absolute;
+		background: var(--red);
+		bottom: 0;
+		left: 0;
+		top: 0;
+		right: 100%;
+		z-index: -1;
+		-webkit-transition: right 0.09s ease-in;
+		transition: right 0.09s ease-in;
+	}
+	
+	.login-btn:hover {
+		color: white;
+		transition: right 0.09s ease-in;
+		transform: scale(1.1);
+	}
+
+	#login-btn i:hover{
+	    color: var(--peach);
+
+	}
+	
+	.exit-col i:hover{
+		transform: scale(1.1);
+	}
+	
+	footer h1 {
+    	font-size: 1.5em;
+		font-family: 'Playfair Display', serif;
+
+	}
+	
+	footer ul{
+	    padding: 0.3em;
+	}
+	
+	footer ul a i{
+		font-size: 1.5em;
+	}
+		/* Reposition nav-bar items */
+	#logo{
+		grid-area: nav-bar;
+		justify-items: flex-start;
+		margin-left: 2em;
+	}
+	
+	#logo img{
+	    max-width: 30%;
+	}
+	
+	#nav-bar{
+		grid-area: logo;
+		padding: 0;
+		margin: 0;
+	}
+	
+	/* Burger menu dissapears */
+	#menuoff, #menuon, #x, #nav-bar span, #filter-btn-mobile, #arrow-down{
+		display: none;
+	}
+	
+	/* Nav-bar appears as desktop navbar */
+	nav{
+		display: inline-flex;
+		position: static;
+		background-color: white;
+		padding: 0;
+		margin: 0;
+	}
+	
+	nav button{
+	padding: 1.5em 0;
+		margin: 0;
+}
+	
+	/* Nav-bar links get in a line */
+	nav a{
+		display: inline-block;
+		color: #4C6250;
+		font-size: 1.2em;
+		padding: 0;
+		font-family: 'Rubik', sans-serif;
+		margin: 0;
+	}
+	
+	nav ul{
+		margin: 0;
+	}
+	
+	
+	
+	/* Change color on hover for the nav-bar and login icon */
+	nav a:hover{
+		color: var(--peach);
+	}
+	
+	nav a:active{
+		color: var(--peach);
+	}
+	
+	#login-btn{
+	    justify-content: flex-start;
+		color: #4C6250;
+		margin-left: 8em;
+	}
+	
+	#login-btn:focus{
+	    outline: none;
+	}
+	
+	.dropdown{
+	position: relative;
+	margin: 0;
+}
+	
+	.dropdown-content{
+		margin: 0;
+		padding: 1.5rem 0 0;
+	}
+
+	.dropdown-content li{
+		border-bottom: 1px solid rgba(0,0,0,0.2);
+		list-style: none;
+		padding: 0.25rem 0;
+		display: block;
+		
+}
+
+	.dropdown:hover > .dropdown-content{
+		display: block;
+}
+
+	.dropdown-content li a:hover{
+		color: var(--peach);
+}
+	
+}
